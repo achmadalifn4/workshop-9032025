@@ -183,6 +183,7 @@ dan untuk mengaktifkan konfigurasinya pilih opsi 'Activate a connection'. dan kl
 <p align="center">
   <img src="/images/image3.png" />
 </p>
+
 ```bash
 [root@rhel9 ~]# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
