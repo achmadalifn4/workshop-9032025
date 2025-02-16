@@ -183,8 +183,7 @@ dan untuk mengaktifkan konfigurasinya pilih opsi 'Activate a connection'. dan kl
 <p align="center">
   <img src="/images/image3.png" />
 </p>
-
-
+```bash
 [root@rhel9 ~]# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -199,7 +198,7 @@ dan untuk mengaktifkan konfigurasinya pilih opsi 'Activate a connection'. dan kl
        valid_lft forever preferred_lft forever
     inet6 fe80::20c:29ff:febd:b3fa/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
-
+```
 # Remote access
 install ssh
 ```
