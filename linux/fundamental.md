@@ -1,5 +1,8 @@
 # Linux
 
+#Subscription-Manager
+##Register 
+
 # Basic Commands
 ## Basic Operation Linux
 displays the user used
@@ -69,15 +72,15 @@ rmdir idn
 ## File management
 create file without content
 ```
-touch idn-roadshow
+touch idn-bootcamp
 ```
 create file with content
 ```
-echo "Hello World" >> idn_roadshow
+echo "Hello World" >> idn_bootcamp
 ```
 displays the contents of the file
 ```
-cat idn_roadshow
+cat idn_bootcamp
 ```
 displays the first 10 lines of a file
 ```
@@ -89,15 +92,15 @@ tail /var/log/syslog
 ```
 delete file
 ```
-rm idn-roadshow
+rm idn-bootcamp
 ```
 copy file and dirctory
 ```
-cp idn_roadshow ~/sysadmin
+cp idn_bootcamp ~/sysadmin
 ```
 move or rename file and directory
 ```
-mv idn_roadshow nama_siswa
+mv idn_bootcamp nama_peserta
 ```
 
 # User and Group Management
@@ -105,7 +108,7 @@ mv idn_roadshow nama_siswa
 ## User Management
 add new user
 ```
-useradd nama_siswa
+useradd nama_peserta
 ```
 displays a list of users
 ```
@@ -124,7 +127,7 @@ usermod -aG nama_group nama_user
 ## Group Management
 create new group
 ```
-groupadd smk
+groupadd idn
 ```
 displays a list of group
 ```
@@ -246,4 +249,48 @@ crontab -u user_name -e
 list user's crontab
 ```
 crontab -u user_name -l
+```
+
+#Selinux
+
+untuk melihat type selinux yang sedang digunakan
+```
+getenforce
+```
+
+untuk mengganti type selinux bisa edit dibawah ini pada bagian "SELINUX=".
+```
+vim /etc/selinux/config
+
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+# See also:
+# https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/using_selinux/changing-selinux-states-and-modes_using-selinux#changing-selinux-modes-at-boot-time_changing-selinux-states-and-modes
+#
+# NOTE: Up to RHEL 8 release included, SELINUX=disabled would also
+# fully disable SELinux during boot. If you need a system with SELinux
+# fully disabled instead of SELinux running with no policy loaded, you
+# need to pass selinux=0 to the kernel command line. You can use grubby
+# to persistently set the bootloader to boot with selinux=0:
+#
+#    grubby --update-kernel ALL --args selinux=0
+#
+# To revert back to SELinux enabled:
+#
+#    grubby --update-kernel ALL --remove-args selinux
+#
+SELINUX=enforcing
+# SELINUXTYPE= can take one of these three values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
+selain edit dalam file, bisa juga menggunakan 
+```
+setenforce 0 > untuk Permissive
+setenforce 1 > untuk Enforcing
 ```
