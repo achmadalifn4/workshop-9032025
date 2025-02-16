@@ -166,9 +166,8 @@ network settings
 nmtui
 ```
 <p align="center">
-![image](/images/image.png)
+  <img src="/images/image.png" />
 </p>
-```
 
 # Remote access
 install ssh
