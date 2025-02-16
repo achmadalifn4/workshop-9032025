@@ -165,10 +165,40 @@ network settings
 ```
 nmtui
 ```
+untuk mengeditnya pilih opsi 'Edit a conection'
 <p align="center">
   <img src="/images/image.png" />
 </p>
+pilih pada network yang ingin diedit
+<p align="center">
+  <img src="/images/image1.png" />
+</p>
+pastikan bahwa ip yang digunakan 'available' dan jika sudah bisa klik ok
+<p align="center">
+  <img src="/images/image2.png" />
+</p>
+jika sudah bisa klik tombol 'Esc' pada pojok kiri keyboard atau klik back
 
+dan untuk mengaktifkan konfigurasinya pilih opsi 'Activate a connection'. dan klik 'deactivate dan activate' untuk merestart konfigurasi networknya
+<p align="center">
+  <img src="/images/image3.png" />
+</p>
+```
+[root@rhel9 ~]# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: ens34: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:0c:29:bd:b3:fa brd ff:ff:ff:ff:ff:ff
+    altname enp2s2
+    inet 172.23.15.1/20 brd 172.23.15.255 scope global noprefixroute ens34
+       valid_lft forever preferred_lft forever
+    inet6 fe80::20c:29ff:febd:b3fa/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
 # Remote access
 install ssh
 ```
