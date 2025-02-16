@@ -170,7 +170,7 @@ network:
   ethernets:
     enp0s3:
       dhcp4: false
-      addresses: ['172.23.15.150/20']
+      addresses: ['172.23.x.x/20']
       routes:
         - to: default
           via: 172.23.0.1
@@ -182,33 +182,37 @@ network:
 # Remote access
 install ssh
 ```
-apt install openssh-server
+dnf install openssh-server
 ```
 enable and start ssh
 ```
 systemctl enable --now sshd.service
 ```
 
-# Ufw
-check ufw
+# Firewalld
+check firewall
 ```
-ufw status
+systemctl status firewalld
 ```
-enable ufw
+enable firewalld
 ```
-ufw enable
-```
-disable ufw
-```
-ufw disable
+systemctl enable firewalld
 ```
 allow port 80
 ```
-ufw allow 80/tcp
+firewall-cmd --permanent --zone=public --add-port=80/tcp
 ```
 allow port 443
 ```
-ufw allow 443/tcp
+firewall-cmd --permanent --zone=public --add-port=443/tcp
+```
+reload firewalld
+```
+firewall-cmd --reload
+```
+check firewalld
+```
+firewall-cmd --list-all
 ```
 
 # cronjob
