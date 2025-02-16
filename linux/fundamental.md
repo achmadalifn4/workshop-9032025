@@ -163,20 +163,11 @@ timedatectl set-timezone Asia/Jakarta
 ```
 network settings
 ```
-nano /etc/netplan/00-installer-config.yaml
+nmtui
 ```
 ```
 network:
-  ethernets:
-    enp0s3:
-      dhcp4: false
-      addresses: ['172.23.x.x/20']
-      routes:
-        - to: default
-          via: 172.23.0.1
-      nameservers:
-        addresses: ['1.1.1.1']
-  version: 2
+![alt text](image.png)
   ```
 
 # Remote access
