@@ -165,7 +165,7 @@ network settings
 ```
 nmtui
 ```
-![image](:images/image.png)
+![image](/images/image.png)
 ```
 
 # Remote access
