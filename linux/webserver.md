@@ -4,19 +4,19 @@
 ## Install Web Server
 update package
 ```
-apt update
+dnf update
 ```
-install nginx
+install httpd
 ```
-apt install nginx
+dnf install httpd
 ```
 ## Test Web Server
 Test via CLI/Web browser
 ```
-curl http://172.16.8.250
+curl http://localhost
 
 buka browser
-http://172.16.8.250
+http://ip-server
 ```
 
 ## custom domain
@@ -40,7 +40,7 @@ http://academy.id
 # Create Certificate Authority, Server Certificate
 ## Install Openssl
 ```
-apt update && apt install openssl
+dnf update && dnf install openssl
 ```
 Buat direktori baru di '/etc/ssl'
 ```
