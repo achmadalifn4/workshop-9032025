@@ -4,11 +4,22 @@
 
 ## Register 
 
-untuk register account redhat bisa kunjungi link ini [register](https://www.redhat.com/wapps/ugc/register.html)
+untuk bisa menggunakan server redhat, system harus terhubung dengan subscription rhel, kita bisa menggunakan daftar subscription secara free dengan join redhat developer. untuk mendaftarnya bisa masuk pada link [Redhat Developer](https://developers.redhat.com/) 
 <p align="center">
-  <img src="/images/image4.png" />
+  <img src="/images/image6.png" />
 </p>
-
+isi form register untuk join redhat developer, jika sudah bisa cek di verifikasi email. dan setelah itu login di
+<p align="center">
+  <img src="/images/image5.png" />
+</p>
+setelah login anda harus mengisi form lagi untuk melengkapi pembuatan RedHat Account
+<p align="center">
+  <img src="/images/image8.png" />
+</p>
+untuk tampilan login seperti dibawah ini
+<p align="center">
+  <img src="/images/image9.png" />
+</p>
 # Basic Commands
 ## Basic Operation Linux
 displays the user used
