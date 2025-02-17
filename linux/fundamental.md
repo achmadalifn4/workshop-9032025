@@ -4,10 +4,11 @@
 
 ## Register 
 
-untuk register account redhat bisa kunjungi link ini register https://www.redhat.com/wapps/ugc/register.html
+untuk register account redhat bisa kunjungi link ini <a herf="https://www.redhat.com/wapps/ugc/register.html">register</a>
 <p align="center">
   <img src="/images/image4.png" />
 </p>
+
 # Basic Commands
 ## Basic Operation Linux
 displays the user used
