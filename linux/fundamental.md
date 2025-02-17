@@ -2,13 +2,13 @@
 
 # Subscription-Manager
 
-## Register 
+## Register Account
 
 untuk bisa menggunakan server redhat, system harus terhubung dengan subscription rhel, kita bisa menggunakan daftar subscription secara free dengan join redhat developer. untuk mendaftarnya bisa masuk pada link [Redhat Developer](https://developers.redhat.com/) 
 <p align="center">
   <img src="/images/image6.png" />
 </p>
-isi form register untuk join redhat developer, jika sudah bisa cek di verifikasi email. dan setelah itu login di
+isi form register untuk join redhat developer, jika sudah bisa cek di verifikasi email. dan setelah itu login untuk mengakses akun redhat
 <p align="center">
   <img src="/images/image5.png" />
 </p>
@@ -20,6 +20,16 @@ untuk tampilan login seperti dibawah ini
 <p align="center">
   <img src="/images/image9.png" />
 </p>
+
+## Login account in Rhel 9
+login pada rhel 9
+```
+subscription-manager register --username username --password password
+```
+menampilkan daftar langganan yang bisa digunakan
+```
+subscription-manager list --available
+```
 
 # Basic Commands
 ## Basic Operation Linux
