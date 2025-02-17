@@ -20,6 +20,7 @@ untuk tampilan login seperti dibawah ini
 <p align="center">
   <img src="/images/image9.png" />
 </p>
+
 # Basic Commands
 ## Basic Operation Linux
 displays the user used
