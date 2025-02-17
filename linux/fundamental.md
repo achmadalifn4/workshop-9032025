@@ -6,7 +6,7 @@
 
 untuk register account redhat bisa kunjungi link ini register https://www.redhat.com/wapps/ugc/register.html
 <p align="center">
-  <img src="/images/image.png" />
+  <img src="/images/image4.png" />
 </p>
 # Basic Commands
 ## Basic Operation Linux
