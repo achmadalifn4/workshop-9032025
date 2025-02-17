@@ -4,7 +4,7 @@
 
 ## Register 
 
-untuk register account redhat bisa kunjungi link ini <a herf="https://www.redhat.com/wapps/ugc/register.html">register</a>
+untuk register account redhat bisa kunjungi link ini [https://www.redhat.com/wapps/ugc/register.html"](register)
 <p align="center">
   <img src="/images/image4.png" />
 </p>
