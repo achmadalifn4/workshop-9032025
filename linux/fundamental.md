@@ -346,8 +346,7 @@ setenforce 1 > untuk Enforcing
 ```
 
 ## Lab Selinux
-
-masuk direcotry /var/www
+open direcotry /var/www
 ```
 cd /var/www/
 ```
@@ -355,7 +354,7 @@ clone game github
 ```
 git clone https://github.com/nebez/floppybird
 ```
-ganti directory root
+change root directory
 ```
 vim /etc/httpd/conf/httpd.conf
 
