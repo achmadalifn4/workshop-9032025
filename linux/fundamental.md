@@ -371,7 +371,7 @@ systemctl restart httpd
 ```
 cek label fcontext
 ```
-ls -Z floppybird
+ls -dZ floppybird
 ```
 change fcontext floppybird
 ```
