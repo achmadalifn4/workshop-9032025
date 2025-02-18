@@ -22,11 +22,11 @@ untuk tampilan login seperti dibawah ini
 </p>
 
 ## Login account in Rhel 9
-login pada rhel 9
+login on rhel 9
 ```
 subscription-manager register --username username --password password
 ```
-menampilkan daftar langganan yang bisa digunakan
+displays a list of subscriptions that can be used
 ```
 subscription-manager list --available
 ```
@@ -267,6 +267,28 @@ check firewalld
 firewall-cmd --list-all
 ```
 
+# Package Manager
+
+install httpd
+```
+dnf install httpd
+```
+
+# Systemd
+
+cek status httpd
+```
+systemctl status httpd
+```
+enable & start httpd
+```
+systemctl enable --now httpd
+```
+stop httpd
+```
+systemctl stop httpd
+```
+
 # cronjob
 create job
 ```
@@ -279,7 +301,7 @@ list user's crontab
 crontab -u user_name -l
 ```
 
-#Selinux
+# Selinux
 
 untuk melihat type selinux yang sedang digunakan
 ```
@@ -321,4 +343,39 @@ selain edit dalam file, bisa juga menggunakan
 ```
 setenforce 0 > untuk Permissive
 setenforce 1 > untuk Enforcing
+```
+
+## Lab Selinux
+
+masuk direcotry /var/www
+```
+cd /var/www/
+```
+clone game github
+```
+git clone https://github.com/nebez/floppybird
+```
+ganti directory root
+```
+vim /etc/httpd/conf/httpd.conf
+
+DocumentRoot "/var/www/floppybird" 
+<Directory "/var/www/floppybird">   
+```
+remove welcome.conf
+```
+rm /etc/httpd/conf.d/welcome.conf
+```
+restart service httpd
+```
+systemctl restart httpd
+```
+cek label fcontext
+```
+ls -Z floppybird
+```
+change fcontext floppybird
+```
+semanage fcontext -a -t httpd_sys_content_t "/var/www/floppybird(/.*)?"
+restorecon -Rv /var/www/floppybird/
 ```
