@@ -267,9 +267,13 @@ MariaDB [(none)]> DROP USER 'wpuser'@'localhost';
 ## Physical Backup & Restore
 ```
 # Backup
-[root@instance ~]# mariadb-hotcopy db_wordpress
+[root@instance ~]# mariabackup --backup \
+   --target-dir=/var/mariadb/backup/ \
+   --user=root --password=asrul
 
 # Restore
-[root@instance ~]# mv db_test /var/lib/mysql
-[root@instance ~]# chmod -R 700 /var/lib/mysql/db_wordpress
+[root@instance ~]# mariabackup --prepare \
+   --target-dir=/var/mariadb/backup/
+[root@instance ~]# mariabackup --copy-back \
+   --target-dir=/var/mariadb/backup
 ```
