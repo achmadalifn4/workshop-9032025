@@ -1,36 +1,5 @@
 # Linux
 
-# Subscription-Manager
-
-## Register Account
-
-untuk bisa menggunakan server redhat, system harus terhubung dengan subscription rhel, kita bisa menggunakan daftar subscription secara free dengan join redhat developer. untuk mendaftarnya bisa masuk pada link [Redhat Developer](https://developers.redhat.com/) 
-<p align="center">
-  <img src="/images/image6.png" />
-</p>
-isi form register untuk join redhat developer, jika sudah bisa cek di verifikasi email. dan setelah itu login untuk mengakses akun redhat
-<p align="center">
-  <img src="/images/image5.png" />
-</p>
-setelah login anda harus mengisi form lagi untuk melengkapi pembuatan RedHat Account
-<p align="center">
-  <img src="/images/image8.png" />
-</p>
-untuk tampilan login seperti dibawah ini
-<p align="center">
-  <img src="/images/image9.png" />
-</p>
-
-## Login account in Rhel 9
-login on rhel 9
-```
-subscription-manager register --username username --password password
-```
-displays a list of subscriptions that can be used
-```
-subscription-manager list --available
-```
-
 # Basic Commands
 ## Basic Operation Linux
 displays the user used
@@ -100,15 +69,15 @@ rmdir idn
 ## File management
 create file without content
 ```
-touch idn-bootcamp
+touch workshop
 ```
 create file with content
 ```
-echo "Hello World" >> idn_bootcamp
+echo "Hello World" >> idn_workshop
 ```
 displays the contents of the file
 ```
-cat idn_bootcamp
+cat idn_workshop
 ```
 displays the first 10 lines of a file
 ```
@@ -120,15 +89,15 @@ tail /var/log/syslog
 ```
 delete file
 ```
-rm idn-bootcamp
+rm workshop
 ```
 copy file and dirctory
 ```
-cp idn_bootcamp ~/sysadmin
+cp idn_workshop ~/sysadmin
 ```
 move or rename file and directory
 ```
-mv idn_bootcamp nama_peserta
+mv idn_workshop nama_peserta
 ```
 
 # User and Group Management
@@ -194,187 +163,27 @@ timedatectl set-timezone Asia/Jakarta
 ```
 network settings
 ```
-nmtui
+nano /etc/netplan/00-installer-config.yaml
 ```
-untuk mengeditnya pilih opsi 'Edit a conection'
-<p align="center">
-  <img src="/images/image.png" />
-</p>
-pilih pada network yang ingin diedit
-<p align="center">
-  <img src="/images/image1.png" />
-</p>
-pastikan bahwa ip yang digunakan 'available' dan jika sudah bisa klik ok
-<p align="center">
-  <img src="/images/image2.png" />
-</p>
-jika sudah bisa klik tombol 'Esc' pada pojok kiri keyboard atau klik back
-
-dan untuk mengaktifkan konfigurasinya pilih opsi 'Activate a connection'. dan klik 'deactivate dan activate' untuk merestart konfigurasi networknya
-<p align="center">
-  <img src="/images/image3.png" />
-</p>
-
-```bash
-[root@rhel9 ~]# ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: ens34: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 00:0c:29:bd:b3:fa brd ff:ff:ff:ff:ff:ff
-    altname enp2s2
-    inet 172.23.15.1/20 brd 172.23.15.255 scope global noprefixroute ens34
-       valid_lft forever preferred_lft forever
-    inet6 fe80::20c:29ff:febd:b3fa/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
 ```
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: false
+      addresses: ['172.23.15.150/20']
+      routes:
+        - to: default
+          via: 172.23.0.1
+      nameservers:
+        addresses: ['1.1.1.1']
+  version: 2
+  ```
 # Remote access
 install ssh
 ```
-dnf install openssh-server
+apt install openssh-server
 ```
 enable and start ssh
 ```
 systemctl enable --now sshd.service
-```
-
-# Firewalld
-check firewall
-```
-systemctl status firewalld
-```
-enable firewalld
-```
-systemctl enable firewalld
-```
-allow port 80
-```
-firewall-cmd --permanent --zone=public --add-port=80/tcp
-```
-allow port 443
-```
-firewall-cmd --permanent --zone=public --add-port=443/tcp
-```
-reload firewalld
-```
-firewall-cmd --reload
-```
-check firewalld
-```
-firewall-cmd --list-all
-```
-
-# Package Manager
-
-install httpd
-```
-dnf install httpd
-```
-
-# Systemd
-
-cek status httpd
-```
-systemctl status httpd
-```
-enable & start httpd
-```
-systemctl enable --now httpd
-```
-stop httpd
-```
-systemctl stop httpd
-```
-
-# cronjob
-create job
-```
-crontab -u user_name -e
-
-* * * * echo "Hello World" > /root/master/file-backup.txt
-```
-list user's crontab
-```
-crontab -u user_name -l
-```
-
-# Selinux
-
-untuk melihat type selinux yang sedang digunakan
-```
-getenforce
-```
-
-untuk mengganti type selinux bisa edit dibawah ini pada bagian "SELINUX=".
-```
-vim /etc/selinux/config
-
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-# See also:
-# https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/using_selinux/changing-selinux-states-and-modes_using-selinux#changing-selinux-modes-at-boot-time_changing-selinux-states-and-modes
-#
-# NOTE: Up to RHEL 8 release included, SELINUX=disabled would also
-# fully disable SELinux during boot. If you need a system with SELinux
-# fully disabled instead of SELinux running with no policy loaded, you
-# need to pass selinux=0 to the kernel command line. You can use grubby
-# to persistently set the bootloader to boot with selinux=0:
-#
-#    grubby --update-kernel ALL --args selinux=0
-#
-# To revert back to SELinux enabled:
-#
-#    grubby --update-kernel ALL --remove-args selinux
-#
-SELINUX=enforcing
-# SELINUXTYPE= can take one of these three values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
-selain edit dalam file, bisa juga menggunakan 
-```
-setenforce 0 > untuk Permissive
-setenforce 1 > untuk Enforcing
-```
-
-## Lab Selinux
-open direcotry /var/www
-```
-cd /var/www/
-```
-clone game github
-```
-git clone https://github.com/nebez/floppybird
-```
-change root directory
-```
-vim /etc/httpd/conf/httpd.conf
-
-DocumentRoot "/var/www/floppybird" 
-<Directory "/var/www/floppybird">   
-```
-remove welcome.conf
-```
-rm /etc/httpd/conf.d/welcome.conf
-```
-restart service httpd
-```
-systemctl restart httpd
-```
-cek label fcontext
-```
-ls -dZ floppybird
-```
-change fcontext floppybird
-```
-semanage fcontext -a -t httpd_sys_content_t "/var/www/floppybird(/.*)?"
-restorecon -Rv /var/www/floppybird/
 ```
