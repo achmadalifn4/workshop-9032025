@@ -1,5 +1,30 @@
 # Linux
-
+# Basic Settings
+set hostname
+```
+hostnamectl set-hostname <hostname>
+```
+set timezone
+```
+timedatectl set-timezone Asia/Jakarta
+```
+network settings
+```
+nano /etc/netplan/00-installer-config.yaml
+```
+```
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: false
+      addresses: ['172.23.15.150/20']
+      routes:
+        - to: default
+          via: 172.23.0.1
+      nameservers:
+        addresses: ['1.1.1.1']
+  version: 2
+```
 # Basic Commands
 ## Basic Operation Linux
 displays the user used
@@ -151,39 +176,4 @@ change group file
 ```
 chgrp group_name file_name
 ```
-
-# Basic Settings
-set hostname
-```
-hostnamectl set-hostname <hostname>
-```
-set timezone
-```
-timedatectl set-timezone Asia/Jakarta
-```
-network settings
-```
-nano /etc/netplan/00-installer-config.yaml
-```
-```
-network:
-  ethernets:
-    enp0s3:
-      dhcp4: false
-      addresses: ['172.23.15.150/20']
-      routes:
-        - to: default
-          via: 172.23.0.1
-      nameservers:
-        addresses: ['1.1.1.1']
-  version: 2
-  ```
-# Remote access
-install ssh
-```
-apt install openssh-server
-```
-enable and start ssh
-```
-systemctl enable --now sshd.service
 ```
