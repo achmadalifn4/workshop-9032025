@@ -17,7 +17,7 @@ network:
   ethernets:
     enp0s3:
       dhcp4: false
-      addresses: ['172.23.15.150/20']
+      addresses: ['172.23.15.x/20']
       routes:
         - to: default
           via: 172.23.0.1
