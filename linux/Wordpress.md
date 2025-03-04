@@ -12,10 +12,6 @@ systemctl status apache2
 ``````
 systemctl enable apache2 --now
 ``````
-* Go to configuration service
-``````
-cd /etc/apache2
-``````
 * Edit konten website with echo
 ``````
 echo "<h1><center>Belajar Web Service LSA IDN</center></h1>" > /var/www/html/index.html
