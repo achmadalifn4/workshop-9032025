@@ -63,3 +63,57 @@ mysql> show databases;
 * Create database db_word
 ``````
 mysql> create database db_word;
+
+# Instalasi Wordpress
+## Pre-Install Wordpress
+* Install unzip
+```
+apt install unzip
+```
+* Install Wordpress
+```
+wget https://wordpress.org/latest.zip
+```
+* unzip wordpress
+```
+unzip latest.zip
+```
+* Move Wordpress 
+```
+mv wordpress /var/www/
+```
+* Change owner and group
+```
+chown -R www-data:www-data wordpress
+```
+* define db,user,pass wordpress
+```
+cd wordpress
+cp wp-config-sample.php wp-config.php
+```
+* Configure like this
+```
+// ** Database settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'wordpress' );
+
+/** Database username */
+define( 'DB_USER', 'rafli' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'rafli123' );
+```
+## Configure web service
+* cp 000-default.conf to wordpress.conf
+```
+cd /etc/apache2/sites-available
+cp 000-default.conf wordpress.conf
+```
+* Configure wordpress.conf
+```
+vim wordpress.conf
+```
+* Change configuration below
+```
+DocumentRoot /var/www/wordpress
+```
