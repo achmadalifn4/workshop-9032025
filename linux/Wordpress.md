@@ -117,3 +117,14 @@ vim wordpress.conf
 ```
 DocumentRoot /var/www/wordpress
 ```
+* activate modul rewrite
+```
+a2enmod rewrite
+```
+* Deactivate 000-default.conf
+```
+a2dissite 000-default.conf
+```
+* Configure php pool
+```
+
