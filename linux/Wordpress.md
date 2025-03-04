@@ -63,6 +63,7 @@ mysql> show databases;
 * Create database db_word
 ``````
 mysql> create database db_word;
+``````
 
 # Instalasi Wordpress
 ## Pre-Install Wordpress
