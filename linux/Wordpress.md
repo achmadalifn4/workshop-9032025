@@ -14,7 +14,7 @@ systemctl enable apache2 --now
 ``````
 * Edit konten website with echo
 ``````
-echo "<h1><center>Belajar Web Service LSA IDN</center></h1>" > /var/www/html/index.html
+echo "<h1><center>Workshop Linux Dasar></h1>" > /var/www/html/index.html
 ``````
 * Reload configuration apache2
 ``````
