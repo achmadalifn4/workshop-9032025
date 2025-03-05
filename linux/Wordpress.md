@@ -7,14 +7,13 @@ apt install apache2 -y
 ``````
 systemctl status apache2
 ``````
-
 * Enable and start apache2
 ``````
 systemctl enable apache2 --now
 ``````
 * Edit konten website with echo
 ``````
-echo "<h1><center>Workshop Linux Dasar></h1>" > /var/www/html/index.html
+echo "<h1><center>Workshop Linux Dasar</h1>" > /var/www/html/index.html
 ``````
 * Reload configuration apache2
 ``````
