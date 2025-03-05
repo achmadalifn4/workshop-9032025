@@ -26,7 +26,7 @@ apt install mysql-server -y
 ``````
 * Start and enable mysql-server
 ``````
-systemctl enable --now mysql-server
+systemctl enable --now mysql
 ``````
 * Initial setup mysql
 ``````
@@ -41,7 +41,7 @@ mysql -u root -p
 ``````
 * Show User list in database
 ``````
-mysql> select user,host,password from mysql.user; 
+mysql> select user,host from mysql.user; 
 ``````
 * Creating user
 ``````
@@ -68,7 +68,7 @@ mysql> create database db_word;
 ## Pre-Install Wordpress
 * Install php
 ```
-apt install php8.1 && libapache2-mod-php
+apt install php8.1-fpm php-mysql libapache2-mod-php
 ```
 * Install unzip
 ```
@@ -86,6 +86,10 @@ unzip latest.zip
 ```
 mv wordpress /var/www/
 ```
+* Enter the directory
+```
+cd /var/www
+```
 * Change owner and group
 ```
 chown -R www-data:www-data wordpress
@@ -93,29 +97,29 @@ chown -R www-data:www-data wordpress
 * define db,user,pass wordpress
 ```
 cd wordpress
-cp wp-config-sample.php wp-config.php
+mv wp-config-sample.php wp-config.php
 ```
 * Change configuration below
 ```
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', 'db_word' );
 
 /** Database username */
-define( 'DB_USER', 'rafli' );
+define( 'DB_USER', 'workshop' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'rafli123' );
+define( 'DB_PASSWORD', 'password' );
 ```
 * Configure .htaccess
 ```
 cat << EOF >> .htaccess
-> php_value upload_max_filesize = 512M
+php_value upload_max_filesize = 512M
 php_value post_max_size = 256M
 php_value max_execution_time = 3000
 php_value max_input_time = 600
 php_value max_input_vars = 3000
-> EOF
+EOF
 ```
 ## Configure web service
 * cp 000-default.conf to wordpress.conf
@@ -138,6 +142,15 @@ a2enmod rewrite
 * Deactivate 000-default.conf
 ```
 a2dissite 000-default.conf
+```
+* Create softlink
+```
+ln -s /etc/apache2/sites-available/wordpress.conf /etc/apache2/sites-enabled/
+```
+* Reload and apache2
+```
+systemctl reload apache2
+systemctl restart apache2
 ```
 ## Access Wordpress
 http://ipserver
