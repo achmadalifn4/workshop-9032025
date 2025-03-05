@@ -22,7 +22,7 @@ systemctl reload apache2
 # Mysql Service
 * Install mysql service
 ``````
-apt install mysql -y
+apt install mysql-server -y
 ``````
 * Start and enable mysql-server
 ``````
