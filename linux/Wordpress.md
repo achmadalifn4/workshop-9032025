@@ -128,7 +128,7 @@ vim wordpress.conf
 ```
 DocumentRoot /var/www/wordpress
 ```
-* activate modul rewrite
+* Activate modul rewrite
 ```
 a2enmod rewrite
 ```
