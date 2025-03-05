@@ -68,7 +68,7 @@ mysql> create database db_word;
 ## Pre-Install Wordpress
 * Install php
 ```
-apt install php8.1-fpm php-mysql libapache2-mod-php
+apt install php-fpm php8.1-fpm php-mysql libapache2-mod-php php8.1-xml
 ```
 * Install unzip
 ```
@@ -111,14 +111,14 @@ define( 'DB_USER', 'workshop' );
 /** Database password */
 define( 'DB_PASSWORD', 'password' );
 ```
-* Configure .htaccess
+* Configure php.ini ini /etc/php/8.1/apache2 cli and fpm
 ```
-cat << EOF >> .htaccess
-php_value upload_max_filesize = 512M
-php_value post_max_size = 256M
-php_value max_execution_time = 3000
-php_value max_input_time = 600
-php_value max_input_vars = 3000
+cat << EOF >> php.ini
+upload_max_filesize = 512M
+post_max_size = 256M
+max_execution_time = 3000
+max_input_time = 600
+max_input_vars = 3000
 EOF
 ```
 ## Configure web service
