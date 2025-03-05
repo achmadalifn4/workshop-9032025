@@ -67,6 +67,10 @@ mysql> create database db_word;
 
 # Instalasi Wordpress
 ## Pre-Install Wordpress
+* Install php
+```
+apt install php8.1 && libapache2-mod-php
+```
 * Install unzip
 ```
 apt install unzip
