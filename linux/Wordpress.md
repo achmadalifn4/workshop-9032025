@@ -63,8 +63,26 @@ mysql> show databases;
 ``````
 mysql> create database db_word;
 ``````
-
+* Change ip database
+```
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+```
 # Instalasi Wordpress
+* Install script install wordpress
+```
+wget http://lab.rafly.my.id/wordpress.sh
+```
+* access web browser
+```
+http://172.23.8.x
+```
+* Install Template
+```
+http://lab.rafly.my.id/template.zip
+```
+
+
+
 ## Pre-Install Wordpress
 * Install php
 ```
