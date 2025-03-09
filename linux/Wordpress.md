@@ -74,7 +74,7 @@ wget http://lab.rafly.my.id/wordpress.sh
 ```
 * access web browser
 ```
-http://172.23.8.x
+http://172.23.12.x
 ```
 * Install Template
 ```
